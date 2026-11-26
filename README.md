@@ -20,6 +20,16 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Production environment variables
+
+For Netlify deployments, set `AUTH_SECRET`, `AUTH_TRUST_HOST=true`, and
+`DATABASE_URL` in the site's environment variables for the Production context,
+then trigger a new deploy. Generate a fresh secret with
+`openssl rand -base64 32`. Keep it private and do not add it to the repository
+or expose it with a `NEXT_PUBLIC_` variable.
+
+Auth.js trusts the host automatically when the app is running on Netlify.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

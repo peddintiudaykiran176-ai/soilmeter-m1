@@ -8,6 +8,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   secret: process.env.AUTH_SECRET,
   trustHost:
     process.env.AUTH_TRUST_HOST === "true" ||
+    process.env.NETLIFY === "true" ||
     process.env.NODE_ENV === "development",
   useSecureCookies: process.env.NODE_ENV === "production",
   pages: {
