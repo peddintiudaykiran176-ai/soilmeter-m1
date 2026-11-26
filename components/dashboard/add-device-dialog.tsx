@@ -22,15 +22,18 @@ export function AddDeviceDialog({
 }: AddDeviceDialogProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto p-4 sm:p-6">
-        <DialogHeader className="pr-8">
+      <DialogContent className="flex h-[min(680px,calc(100dvh-1rem))] w-[calc(100%-1rem)] max-w-2xl flex-col gap-3 overflow-hidden p-3 sm:h-[min(700px,calc(100dvh-2rem))] sm:gap-4 sm:p-6">
+        <DialogHeader className="shrink-0 pr-8">
           <DialogTitle>Connect another SoilMeter</DialogTitle>
           <DialogDescription>
-            Add the field details and verify the device ID to connect it to your
-            dashboard.
+            Follow the steps to add a device and its field details.
           </DialogDescription>
         </DialogHeader>
-        <DeviceRegistrationForm onDeviceConnected={onDeviceConnected} />
+        <DeviceRegistrationForm
+          className="flex-1"
+          onCancel={() => onOpenChange(false)}
+          onDeviceConnected={onDeviceConnected}
+        />
       </DialogContent>
     </Dialog>
   );
